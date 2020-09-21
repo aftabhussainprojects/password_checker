@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <head></head>
+    
+    <body>
+
+        <script>
+
+            // password check
+            function checkPassword(password) {    
+                let correctPassword = "myPassword1!";
+                if (password === correctPassword) {
+                    return true;
+                }
+                return false;
+            }
+
+            // authenticate
+            function authenticateUser() {
+                let attempts = 0;
+                let maxAttempts = 3;
+                while (attempts < maxAttempts) {
+                    let remainingAttempts = maxAttempts - attempts;
+                    let password = prompt("Please enter the password, you have " + remainingAttempts + " attempts remaining");
+                    if (checkPassword(password)) {
+                        return true;
+                    } else {
+                    attempts++;
+                    }
+                }
+                return false;
+            }
+
+            // deliver secret
+            function deliverSecret() {
+                let secretInfo = "Watch this for secret information: https://www.youtube.com/watch?v=oHg5SJYRHA0";
+                return secretInfo;
+            }
+
+            // get secret
+            function getSecret() {
+                if (authenticateUser()) {
+                    return deliverSecret()
+                }
+                return "Authentication Failed"
+            }
+            
+            // make an alert
+            alert(getSecret())
+
+        </script>
+
+    </body>
+
+</html>
